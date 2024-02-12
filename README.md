@@ -1,2 +1,2 @@
-# computational-art-spring2024-3
+# computational-art-spring2024
  
