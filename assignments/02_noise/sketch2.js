@@ -34,4 +34,7 @@ function draw() {
     }
   }
 }
+//resources I used to help me 
+//https://www.youtube.com/watch?v=Qf4dIN99e2w&list=PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD&index=1
+//https://natureofcode.com/random/
 
