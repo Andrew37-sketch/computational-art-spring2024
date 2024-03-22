@@ -5,7 +5,7 @@ createCanvas (1000,800);
 background()
 function draw() {
     background(400,100,220)
-    fill(248, 252, 3);
+    fill(248, 252, 252);
     rect(100,100,300,300)
     fill(252, 161, 3);
     ellipse(250, 250, 280, 280);

@@ -1,23 +1,36 @@
-let noiseScale = 0.02;
-let colors = ['#ff9900', '#ccff00', '#33ccff', '#ff33cc'];
-let timeOffset = 0;
+let noiseScale = 0.01; // Scale factor for Perlin noise
+let timeOffset = 0; // Time offset for animation
 
 function setup() {
-  createCanvas(600, 600);
-  colorMode(HSB, 360, 100, 100);
+  createCanvas(600, 600); // Create a canvas
+  colorMode(HSB, 300, 100, 100); // Set color mode to HSB
 }
 
 function draw() {
-  background(0);
+  background(0); // Set background color
+
   timeOffset += 0.01; // Increment time offset
 
-  for (let x = 0; x < width; x += 10) {
-    for (let y = 0; y < height; y += 10) {
-      let noiseVal = noise(x * noiseScale, y * noiseScale, timeOffset); // Add time offset to Perlin noise
-      let bright = map(noiseVal, 0, 1, 0, 100);
-      let colorIndex = floor(map(bright, 0, 100, 0, colors.length));
-      fill(colors[colorIndex]);
-      rect(x, y, 10, 10);
+  for (let x = 0; x < width; x += 20) { // Loop over x-coordinate
+    for (let y = 0; y < height; y += 20) { // Loop over y-coordinate
+      
+      // Generate Perlin noise value at current position with time offset
+      let noiseVal = noise(x * noiseScale, y * noiseScale, timeOffset);
+
+      // Map noise value to hue and saturation
+      let hue = map(noiseVal, 0, 1, 0, 360);
+      let saturation = map(noiseVal, 0, 1, 50, 100);
+
+      // Set fill color using hue and saturation
+      fill(hue, saturation, 100);
+
+      // Add variation to rectangle size based on Perlin noise
+      let sizeOffset = map(noiseVal, 0, 1, -5, 5);
+      let rectSize = 20 + sizeOffset;
+      
+      // Draw a rectangle
+      rectMode(CENTER);
+      rect(x + 10, y + 10, rectSize, rectSize);
     }
   }
 }
