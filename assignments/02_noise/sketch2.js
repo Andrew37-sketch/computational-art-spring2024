@@ -27,6 +27,8 @@ function draw() {
       // Add variation to rectangle size based on Perlin noise
       let sizeOffset = map(noiseVal, 0, 1, -5, 5);
       let rectSize = 20 + sizeOffset;
+
+    
       
       // Draw a rectangle
       rectMode(CENTER);
