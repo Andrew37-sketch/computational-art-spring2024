@@ -21,7 +21,7 @@ function drawCircle(x, y, diameter) {
   
   ellipse(x, y, diameter); // Draw a circle
   
-  let newDiameter = diameter * 0.7; // Reduce diameter for the next circle
+  let newDiameter = diameter * 0.5; // Reduce diameter for the next circle
   
   // Recursive calls to draw smaller circles
   drawCircle(x + diameter * 0.3, y, newDiameter); // Right circle
